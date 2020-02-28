@@ -1,5 +1,6 @@
 <?php
-
-    unset($_SESSION['user']);
+    session_start();
+    session_unset();
+    session_destroy();
     header('Location: /forum/connection.php');
 ?>

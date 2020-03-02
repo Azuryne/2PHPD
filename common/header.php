@@ -18,7 +18,7 @@ session_start();
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/forum/home.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -27,13 +27,13 @@ session_start();
     <?php
       if(isset($_SESSION['user'])){
         ?>
-        <a class="nav-link" href="/forum/private/logout.php">Log out</a>
+        <a class="nav-link" href="private/logout.php">Log out</a>
         <?php
       }
       else{
         ?>
-        <a class="nav-link" href="/forum/connection.php">Log in</a>
-        <a class="nav-link" href="/forum/register.php">Register</a>
+        <a class="nav-link" href="connection.php">Log in</a>
+        <a class="nav-link" href="register.php">Register</a>
       <?php
       }
       ?>

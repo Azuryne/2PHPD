@@ -2,7 +2,7 @@
 include('common/header.php');
 ?>
 <div class='container d-flex justify-content-center'>
-<form method='POST' class="col-md-6" action="/forum/private/verifForm.php">
+<form method='POST' class="col-md-6" action="private/verifForm.php">
   <div class="form-group">
     <label for="inputEmail">Email address</label>
     <input name="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">

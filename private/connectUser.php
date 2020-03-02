@@ -9,4 +9,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])){
         $_SESSION['user'] = $user;
         header('Location: ../home.php');
     }
+    else{
+        header('Location: ../connection.php?invalid=password');
+    }
 }

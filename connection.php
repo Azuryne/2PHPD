@@ -1,6 +1,10 @@
 <?php
 include('common/header.php');
 $email = $_GET['email'] ?? '';
+$invalid_password = '';
+if (isset($_GET['invalid']) && $_GET['invalid'] === 'password'){
+  $invalid_password = 'is-invalid';
+}
 ?>
 <div class='container d-flex justify-content-center'>
 <form method='POST' class="col-md-6" action="/forum/private/connectUser.php">
@@ -10,10 +14,19 @@ $email = $_GET['email'] ?? '';
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input name="password" type="password" class="form-control <?php echo $invalid_password; ?>" id="exampleInputPassword1" placeholder="Password">
+    <?php if (!empty($invalid_password)){
+    ?>
+    <div>
+        <small id="passwordHelp" class="text-danger">
+          Password is incorrect
+        </small>      
+      </div>
+      <?php
+    }
+    ?>
   </div>
-  <div class="form-check">
-  </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>

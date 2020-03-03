@@ -1,5 +1,5 @@
 <?php
-include('databaseFunc.php');
+include('classes/Database.php');
 
 if (!empty($_POST['email']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && 
 !empty($_POST['age']) && !empty($_POST['password']) && !empty($_POST['repeatPassword'])){
@@ -13,25 +13,28 @@ if (!empty($_POST['email']) && !empty($_POST['firstname']) && !empty($_POST['las
         if (intval($age) && intval($age) >= 12 && intval($age) <= 150){
             if($password === $repeatPassword){
                 $hashedpwd = password_hash($password, PASSWORD_BCRYPT);
-                if(add_user($email, $firstname, $lastname, $age, $hashedpwd)){
-                    header('Location: /forum/connection.php?email=' .$email);
+                $database = new Database();
+                $result = $database->add_user($email, $firstname, $lastname, $age, $hashedpwd);
+
+                if($result){
+                    header('Location: ../connection.php?email=' .$email);
                 }
                 else{
-                    header('Location: /forum/register.php?error=database');
+                    header('Location: ../register.php?error=database');
                 }
             }
             else{
-                header('Location: /forum/register.php?error=password');
+                header('Location: ../register.php?error=password');
             }
         }
         else{
-            header('Location: /forum/register.php?error=age');
+            header('Location: ../register.php?error=age');
         }
     }
     else{
-        header('Location: /forum/register.php?error=email');
+        header('Location: ../register.php?error=email');
     }
 }
 else{
-    header('Location: /forum/register.php?error=empty');
+    header('Location: ../register.php?error=empty');
 }

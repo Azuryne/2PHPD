@@ -1,8 +1,9 @@
 <?php
-require('databaseFunc.php');
+require('classes/Database.php');
 
 if (!empty($_POST['email']) && !empty($_POST['password'])){
-    $user = authenticate($_POST['email'], $_POST['password']);
+    $database= new Database();
+    $user = $database->authenticate($_POST['email'], $_POST['password']);
     if($user){
         echo 'Please wait';
         session_start();
@@ -12,4 +13,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])){
     else{
         header('Location: ../connection.php?invalid=password');
     }
+    unset($database);
+    
 }

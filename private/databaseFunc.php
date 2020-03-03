@@ -1,7 +1,9 @@
 <?php
 
+require ("classes/User.php");
+
 function add_user($email, $firstname, $lastname, $age, $password){
-    $conn = new mysqli('localhost', 'root', '', '2phpd');
+    $conn = new mysqli('localhost:8889', 'root', 'root', '2phpd');
     if ($conn->connect_error) {
         return False;
     }
@@ -14,7 +16,7 @@ function add_user($email, $firstname, $lastname, $age, $password){
 }
 
 function authenticate($email, $password){
-    $conn = new mysqli('localhost', 'root', '', '2phpd');
+    $conn = new mysqli('localhost:8889', 'root', 'root', '2phpd');
     if ($conn->connect_error) {
         return False;
     }
@@ -31,7 +33,8 @@ function authenticate($email, $password){
     }
     $same = password_verify($password, $user['password']);
     if($same){
-        return $user;
+        $user1 = new User($user);
+        return $user1;
     }
     return False;
     

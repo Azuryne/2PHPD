@@ -2,10 +2,9 @@
 require('classes/Database.php');
 
 if (!empty($_POST['email']) && !empty($_POST['password'])){
-    $database= new Database();
+    $database= new Database('localhost', 'root', '', '2phpd');
     $user = $database->authenticate($_POST['email'], $_POST['password']);
     if($user){
-        echo 'Please wait';
         session_start();
         $_SESSION['user'] = $user;
         header('Location: ../home.php');

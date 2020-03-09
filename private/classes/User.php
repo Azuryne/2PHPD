@@ -1,4 +1,6 @@
 <?php
+namespace Classes;
+
     Class  User {
         public $id;
         public $email;

@@ -1,0 +1,11 @@
+{
+    
+    "autoload": {
+        "classmap": [
+            "private/"
+        ]
+    },
+    "require": {
+        "phpunit/phpunit": "^8.5"
+    }
+}

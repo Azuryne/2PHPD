@@ -1,6 +1,6 @@
 <?php
 
-require ("classes/User.php");
+use Classes\User;
 
 function add_user($email, $firstname, $lastname, $age, $password){
     $conn = new mysqli('localhost:8889', 'root', 'root', '2phpd');

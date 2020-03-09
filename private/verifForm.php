@@ -1,5 +1,6 @@
 <?php
-include('classes/Database.php');
+use Classes\Database;
+
 $error = ['error' => []];
 header('Content-Type: application/json');
 if (empty($_POST)){

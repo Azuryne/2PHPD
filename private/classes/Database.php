@@ -1,5 +1,8 @@
 <?php
-require_once('User.php');
+namespace Classes;
+
+use mysqli;
+
 class Database {
 public $connection;
 

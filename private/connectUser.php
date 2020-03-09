@@ -1,5 +1,5 @@
 <?php
-require('classes/Database.php');
+use Classes\Database;
 
 if (!empty($_POST['email']) && !empty($_POST['password'])){
     $database= new Database('localhost', 'root', '', '2phpd');
